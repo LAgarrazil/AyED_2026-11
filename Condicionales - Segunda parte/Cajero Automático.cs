@@ -24,7 +24,7 @@ namespace ConsoleApplication1
 
             else if (retiro % 1000 == 0)
 			{
-             Console.WriteLine("entregando billetes");
+                Console.WriteLine("entregando billetes");
 			}
 			
 			else
