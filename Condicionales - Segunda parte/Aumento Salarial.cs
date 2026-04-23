@@ -18,7 +18,7 @@ namespace ConsoleApplication1
             if (segundos >= 60)
             {
                 
-                Console.WriteLine("minutos: " + minutos + "segundos" + segundossobrantes );
+                Console.WriteLine("minutos: " + minutos + "segundos: " + segundossobrantes );
             }
 
             else
