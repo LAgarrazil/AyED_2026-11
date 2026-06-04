@@ -10,48 +10,59 @@ namespace ConsoleApplication2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("(1)depositar dinero");
-            Console.WriteLine("(2)retirar dinero");
-            Console.WriteLine("(3)ver saldo actual");
-            Console.WriteLine("(4)salir");
-            Console.WriteLine("ingrese una opcion: ");
-            int opcion = Convert.ToInt32(Console.ReadLine());
-            int dinero = 10000;
-            while (opcion > 4)
+            int saldo = 10000;
+            int opcion;
+
+            do
             {
-                if (opcion == 1)
-                {
-                    Console.WriteLine("cantidad de dinero: ");
-                    int movimiento = Convert.ToInt32(Console.ReadLine());
-                    dinero += movimiento;
-                }
-                else if (opcion == 2)
-                {
-                    Console.WriteLine("cantidad de dinero: ");
-                    int movimiento = Convert.ToInt32(Console.ReadLine());
-                    dinero -= movimiento;
-                }
-                else if (opcion == 3)
-                {
-                    Console.WriteLine("saldo actual: " + dinero);
-                }
-                else if (opcion > 4)
-                {
-                    Console.WriteLine("opcion invalida");
-                }
-                else if (opcion == 4)
-                {
-                    break;
-                }
-                Console.WriteLine();
-                Console.WriteLine("(1)depositar dinero");
-                Console.WriteLine("(2)retirar dinero");
-                Console.WriteLine("(3)ver saldo actual");
-                Console.WriteLine("(4)salir");
-                Console.WriteLine("ingrese una opcion: ");
+                Console.WriteLine("1. Depositar dinero");
+                Console.WriteLine("2. Retirar dinero");
+                Console.WriteLine("3. Ver saldo actual");
+                Console.WriteLine("4. Salir");
+                Console.Write("Ingrese una opcion: ");
+
                 opcion = Convert.ToInt32(Console.ReadLine());
-            }
-            Console.WriteLine("Programa finalizado");
+
+                switch (opcion)
+                {
+                    case 1:
+                        Console.Write("Monto a depositar: ");
+                        int deposito = Convert.ToInt32(Console.ReadLine());
+                        saldo += deposito;
+                        Console.WriteLine("Depósito realizado.");
+                        break;
+
+                    case 2:
+                        Console.Write("Monto a retirar: ");
+                        int retiro = Convert.ToInt32(Console.ReadLine());
+
+                        if (retiro <= saldo)
+                        {
+                            saldo -= retiro;
+                            Console.WriteLine("Retiro realizado.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Saldo insuficiente.");
+                        }
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Saldo actual: $" + saldo);
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Saliendo del sistema...");
+                        break;
+
+                    default:
+                        Console.WriteLine("Opción inválida.");
+                        break;
+                }
+
+            } while (opcion != 4);
+
+            Console.WriteLine("Programa finalizado.");
         }
     }
 }
